@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: Cleaned and standardized customer data
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: Trimmed customer company name
+      - name: country
+        description: Uppercase country name
+      - name: email
+        description: Lowercase contact email
+
+  - name: stg_shipments
+    description: Cleaned and standardized shipment data
+    columns:
+      - name: shipment_id
+        description: Unique shipment identifier
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: Reference to customer
+        tests:
+          - not_null
+      - name: origin_city
+        description: Uppercase origin city
+      - name: destination_city
+        description: Uppercase destination city
+      - name: weight_kg
+        description: Shipment weight
+      - name: status
+        description: Uppercase shipment status
+      - name: created_at
+        description: Creation timestamp

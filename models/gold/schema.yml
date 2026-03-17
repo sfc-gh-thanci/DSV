@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: customer_shipment_summary
+    description: Aggregated shipment metrics per customer
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: Customer company name
+      - name: country
+        description: Customer country
+      - name: total_shipments
+        description: Total number of shipments
+      - name: total_weight_kg
+        description: Total weight shipped in kg
+      - name: delivered_count
+        description: Number of delivered shipments
+
+  - name: shipment_metrics
+    description: Aggregated metrics by shipment status
+    columns:
+      - name: status
+        description: Shipment status
+        tests:
+          - unique
+          - not_null
+      - name: shipment_count
+        description: Count of shipments per status
+      - name: avg_weight_kg
+        description: Average weight per status
+      - name: total_weight_kg
+        description: Total weight per status

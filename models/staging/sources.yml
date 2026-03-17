@@ -1,0 +1,36 @@
+version: 2
+
+sources:
+  - name: bronze
+    database: DSV_DEMO
+    schema: BRONZE
+    description: Raw data layer for DSV logistics
+    tables:
+      - name: RAW_SHIPMENTS
+        description: Raw shipment records from logistics operations
+        columns:
+          - name: SHIPMENT_ID
+            description: Unique identifier for each shipment
+          - name: CUSTOMER_ID
+            description: Reference to the customer
+          - name: ORIGIN
+            description: Origin city
+          - name: DESTINATION
+            description: Destination city
+          - name: WEIGHT_KG
+            description: Shipment weight in kilograms
+          - name: STATUS
+            description: Current shipment status
+          - name: CREATED_AT
+            description: Timestamp when shipment was created
+      - name: RAW_CUSTOMERS
+        description: Raw customer master data
+        columns:
+          - name: CUSTOMER_ID
+            description: Unique customer identifier
+          - name: NAME
+            description: Customer company name
+          - name: COUNTRY
+            description: Customer country
+          - name: CONTACT_EMAIL
+            description: Contact email address

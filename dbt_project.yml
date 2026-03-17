@@ -1,0 +1,24 @@
+name: 'dsv_logistics'
+version: '1.0.0'
+
+profile: 'dsv_logistics'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  dsv_logistics:
+    silver:
+      +schema: SILVER
+      +materialized: table
+    gold:
+      +schema: GOLD
+      +materialized: table
